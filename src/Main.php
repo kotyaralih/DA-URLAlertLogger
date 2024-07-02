@@ -72,19 +72,18 @@ class Main{
 
 	public function sendAPIRequest($method, $token){
 		$ch = curl_init();
-	    curl_setopt($ch, CURLOPT_URL, "https://www.donationalerts.com/api/v1/" . $method);
-	    curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Authorization: Bearer " . $token));
-	    curl_setopt($ch, CURLOPT_HEADER, 0);
+		curl_setopt($ch, CURLOPT_URL, "https://www.donationalerts.com/api/v1/" . $method);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Authorization: Bearer " . $token));
+		curl_setopt($ch, CURLOPT_HEADER, 0);
 
-	    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET"); 
-	    curl_setopt($ch, CURLOPT_POSTFIELDS, "{}");
-	    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+		curl_setopt($ch, CURLOPT_POSTFIELDS, "{}");
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-	    // Таймаут в секундах
-	    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-
-	    $output = curl_exec($ch);
-	    if($method === "alerts/donations"){
+		// Таймаут в секундах
+		curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+		$output = curl_exec($ch);
+		if($method === "alerts/donations"){
 			if($output === null or !isset(json_decode($output, true)["data"])) return false;
 			$lastdonation = json_decode($output, true)["data"][0];
 			if($this->runcount < 1 or $lastdonation["id"] === $this->lastdonationid) return false;
@@ -94,13 +93,13 @@ class Main{
 			}
 			$this->lastdonationid = $lastdonation["id"];
 			
-			$regex = "((https?|ftp)\:\/\/)?"; // SCHEME 
-		    $regex .= "([a-z0-9+!*(),;?&=\$_.-]+(\:[a-z0-9+!*(),;?&=\$_.-]+)?@)?"; // User and Pass 
-		    $regex .= "([a-z0-9-.]*)\.([a-z]{2,3})"; // Host or IP 
-		    $regex .= "(\:[0-9]{2,5})?"; // Port 
-		    $regex .= "(\/([a-z0-9+\$_-]\.?)+)*\/?"; // Path 
-		    $regex .= "(\?[a-z+&\$_.-][a-z0-9;:@&%=+\/\$_.-]*)?"; // GET Query 
-		    $regex .= "(#[a-z_.-][a-z0-9+\$_.-]*)?"; // Anchor 
+			$regex = "((https?|ftp)\:\/\/)?"; // SCHEME
+			$regex .= "([a-z0-9+!*(),;?&=\$_.-]+(\:[a-z0-9+!*(),;?&=\$_.-]+)?@)?"; // User and Pass
+			$regex .= "([a-z0-9-.]*)\.([a-z]{2,3})"; // Host or IP
+			$regex .= "(\:[0-9]{2,5})?"; // Port
+			$regex .= "(\/([a-z0-9+\$_-]\.?)+)*\/?"; // Path
+			$regex .= "(\?[a-z+&\$_.-][a-z0-9;:@&%=+\/\$_.-]*)?"; // GET Query
+			$regex .= "(#[a-z_.-][a-z0-9+\$_.-]*)?"; // Anchor
 
 			if(preg_match_all("/".$regex."/", $lastdonation["message"], $links, PREG_PATTERN_ORDER)){ 
 				foreach($links[1] as $link){
@@ -109,7 +108,7 @@ class Main{
 				} 
 			}
 		}
-	    return $output;
+		return $output;
 	}
 }
 $main = new Main();
