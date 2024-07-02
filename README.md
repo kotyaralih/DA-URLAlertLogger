@@ -13,7 +13,17 @@
 # Как запустить?
 Всё довольно-таки просто. Вы можете либо скачать репозиторий и напрямую запустить Main.php, открыв командную строку в папке с этим файлом, используя команду `php Main.php` (если у вас установлен [PHP](https://www.php.net/) со включенной поддержкой CURL), либо же, вы можете загрузить архив с уже собранным приложением в [Releases](https://github.com/kotyaralih/DA-URLAlertLogger/releases).
 
-Для запуска собранного приложения, понадобится установить [.NET 5.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-5.0.17-windows-x64-installer), т.к. для компиляции используется [Peachpie](https://peachpie.io/), который позволяет выполнять PHP код в рамках .NET
+Для запуска собранного приложения, понадобится установить [.NET 5.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-5.0.17-windows-x64-installer), т.к. для компиляции используется [Peachpie](https://peachpie.io/), встроенный в [.NET SDK](https://dotnet.microsoft.com/ru-ru/download), который позволяет выполнять PHP код в рамках .NET
+
+Вы так же можете собрать приложение из исходного кода самостоятельно!
+
+# Как собрать приложение?
+1) Устанавливаем [.NET SDK](https://dotnet.microsoft.com/ru-ru/download)
+2) Клонируем или скачиваем репозиторий.
+3) Открываем командную строку в папке с репозиторием.
+4) Вводим команду `dotnet run`
+5) Немного ждем...
+6) Приложение будет собрано по пути `папка_репозитория/bin/Debug/net5.0`
 
 # Получаем токен от аккаунта DonationAlerts
 > [!CAUTION]
