@@ -1,5 +1,5 @@
 # DA-URLAlertLogger
-Простенькая CLI (Command Line Interface, или же не имеющая графического интерфейса) программа на PHP, которая сохраняет донаты, которые содержат ссылки, из DonationAlerts.
+Простенькая CLI (Command Line Interface, или же не имеющая графического интерфейса) программа на PHP, которая сохраняет сообщения из донатов, содержащих ссылки (для DonationAlerts).
 
 Использует [DonationAlerts API](https://www.donationalerts.com/apidoc), что вполне логично.
 
