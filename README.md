@@ -15,14 +15,19 @@
 
 Для запуска собранного приложения, понадобится установить [.NET 5.0 Runtime](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-5.0.17-windows-x64-installer), т.к. для компиляции используется [Peachpie](https://peachpie.io/), встроенный в [.NET SDK](https://dotnet.microsoft.com/ru-ru/download), который позволяет выполнять PHP код в рамках .NET
 
-Вы так же можете собрать приложение из исходного кода самостоятельно!
+Вы так же можете [собрать приложение из исходного кода самостоятельно!](https://github.com/kotyaralih/DA-URLAlertLogger?tab=readme-ov-file#%D0%BA%D0%B0%D0%BA-%D1%81%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5)
 
 # Как собрать приложение?
 1) Устанавливаем [.NET SDK](https://dotnet.microsoft.com/ru-ru/download)
+   
 2) Клонируем или скачиваем репозиторий.
+   
 3) Открываем командную строку в папке с репозиторием.
+   
 4) Вводим команду `dotnet run`
+   
 5) Немного ждем...
+    
 6) Приложение будет собрано по пути `папка_репозитория/bin/Debug/net5.0`
 
 # Получаем токен от аккаунта DonationAlerts
