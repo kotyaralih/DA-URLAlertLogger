@@ -3,6 +3,8 @@
 
 Использует [DonationAlerts API](https://www.donationalerts.com/apidoc), что вполне логично.
 
+Перед использованием **обязательно полностью ознакомьтесь с README (описанием), чтобы у вас не возникало проблем при использовании!**
+
 Для работы потребуется [получить токен от своего DonationAlerts аккаунта](https://github.com/kotyaralih/DA-URLAlertLogger?tab=readme-ov-file#%D0%BF%D0%BE%D0%BB%D1%83%D1%87%D0%B0%D0%B5%D0%BC-%D1%82%D0%BE%D0%BA%D0%B5%D0%BD-%D0%BE%D1%82-%D0%B0%D0%BA%D0%BA%D0%B0%D1%83%D0%BD%D1%82%D0%B0-donationalerts).
 
 # Функционал
