@@ -92,6 +92,8 @@ class Main{
 				return false; //некий фикс того, что донат сделанный до открытия проги вновь выводился в консольку и записывался в лог
 			}
 			$this->lastdonationid = $lastdonation["id"];
+			$donusername = $lastdonation["username"];
+			if($donusername === null) $donusername = "Аноним";
 			
 			$regex = "((https?|ftp)\:\/\/)?"; // Начало
 			$regex .= "([a-z0-9+!*(),;?&=\$_.-]+(\:[a-z0-9+!*(),;?&=\$_.-]+)?@)?";
@@ -103,8 +105,8 @@ class Main{
 
 			if(preg_match_all("/".$regex."/", $lastdonation["message"], $links, PREG_PATTERN_ORDER)){ 
 				foreach($links[1] as $link){
-					echo $lastdonation["created_at"] . " " . $lastdonation["username"] . " (" . $lastdonation["amount"] . " " . $lastdonation["currency"] . ") - " . $lastdonation["message"] . PHP_EOL;
-					if(!file_exists("urlDons.log")) file_put_contents("urlDons.log", $lastdonation["created_at"] . " " . $lastdonation["username"] . " (" . $lastdonation["amount"] . " " . $lastdonation["currency"] . ") - " . $lastdonation["message"]); else file_put_contents("urlDons.log", file_get_contents("urlDons.log") . PHP_EOL . $lastdonation["created_at"] . " " . $lastdonation["username"] . " (" . $lastdonation["amount"] . " " . $lastdonation["currency"] . ") - " . $lastdonation["message"]);
+					echo $lastdonation["created_at"] . " " . $donusername . " (" . $lastdonation["amount"] . " " . $lastdonation["currency"] . ") - " . $lastdonation["message"] . PHP_EOL;
+					if(!file_exists("urlDons.log")) file_put_contents("urlDons.log", $lastdonation["created_at"] . " " . $donusername . " (" . $lastdonation["amount"] . " " . $lastdonation["currency"] . ") - " . $lastdonation["message"]); else file_put_contents("urlDons.log", file_get_contents("urlDons.log") . PHP_EOL . $lastdonation["created_at"] . " " . $donusername . " (" . $lastdonation["amount"] . " " . $lastdonation["currency"] . ") - " . $lastdonation["message"]);
 				} 
 			}
 		}
